@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@artkar__ Portfolio - Booking</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="booking.html">Booking</a>
+  </nav>
+
+  <section class="booking-section">
+    <!-- Flash Messages Container -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: bold; border: 1px solid #c3e6cb;">
+          {% for message in messages %}
+            <p style="margin: 0;">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <h2>Book a Session</h2>
+    <p>Fill out the form below to book a consultation or commission artwork. We’ll get back to you promptly.</p>
+
+    <!-- Cleaned Booking Form -->
+    <form action="/booking" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+
+      <label for="service">Service Type</label>
+      <select id="service" name="service" required>
+        <option value="">-- Select an option --</option>
+        <option value="consultation">Consultation</option>
+        <option value="custom-artwork">Custom Artwork</option>
+        <option value="collaboration">Collaboration</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" name="time">
+
+      <label for="message">Additional Details</label>
+      <textarea id="message" name="message" rows="5" placeholder="Describe your request..." required></textarea>
+
+      <button type="submit" class="btn">Submit Booking</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 @artkar__ | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

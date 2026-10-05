@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@artkar__ Portfolio - Gallery</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Navigation (Updated to use correct Flask server routes) -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/gallery.html">Gallery</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/booking.html">Booking</a>
+  </nav>
+
+  <!-- Gallery Section -->
+  <section>
+    <h2>Gallery</h2>
+    <p>Explore my collection of artworks and creative projects.</p>
+
+    <div class="gallery-grid">
+      <div class="card">
+        <!-- Flask Native Static Image Routing -->
+        <img src="{{ url_for('static', filename='images/art1.jpg') }}" alt="Abstract Dreams">
+        <h3>Abstract Dreams</h3>
+        <p>A bold mix of colors and shapes, representing imagination without limits.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+
+      <div class="card">
+        <!-- Flask Native Static Image Routing -->
+        <img src="{{ url_for('static', filename='images/art2.jpg') }}" alt="Minimalist Flow">
+        <h3>Minimalist Flow</h3>
+        <p>Clean lines and soft tones, showing beauty in simplicity.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+
+      <div class="card">
+        <!-- Flask Native Static Image Routing -->
+        <img src="{{ url_for('static', filename='images/art3.jpg') }}" alt="Experimental Fusion">
+        <h3>Experimental Fusion</h3>
+        <p>A creative blend of digital and traditional techniques, pushing boundaries.</p>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 @artkar__ | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

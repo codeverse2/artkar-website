@@ -1,0 +1,362 @@
+/* ==========================================================================
+   1. GLOBAL VARIABLES & RESET (Psychology: Minimalist, Premium Tone)
+   ========================================================================== */
+:root {
+  --bg-main: #0d0e12;         /* Deep Obsidian Charcoal - Premium feel */
+  --bg-card: #161820;         /* Soft Velvet Grey - Clean contrast */
+  --accent-gold: #d4af37;     /* Warm Champagne Gold - High value & creativity */
+  --accent-hover: #f3cf65;    /* Radiant Gold - Dynamic interaction response */
+  --text-pure: #ffffff;
+  --text-muted: #a0a5b5;      /* High-readability slate grey */
+  --font-main: 'Poppins', 'Segoe UI', Arial, sans-serif;
+
+  /* System Notification States */
+  --success-bg: #11261a;
+  --success-text: #52c41a;
+  --success-border: #274d32;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION (Psychology: Trust Architecture)
+   ========================================================================== */
+header {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, rgba(22, 24, 32, 0.8) 0%, var(--bg-main) 100%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: var(--text-pure);
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+header .btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  background: var(--accent-gold);
+  color: var(--bg-main);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+header .btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background: var(--bg-card);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav a {
+  color: var(--text-muted);
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   3. STRUCTURAL SECTIONS & HERO HERO
+   ========================================================================== */
+.hero {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #161820 0%, #252936 100%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  animation: fadeIn 1.2s ease-out;
+}
+
+.hero-text {
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-text h2 {
+  font-size: 2.2rem;
+  color: var(--text-pure);
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 1100px;
+  width: 100%;
+  flex: 1;
+}
+
+/* ==========================================================================
+   4. LAYOUTS: FORMS & CARDS (Psychology: Low Cognitive Load)
+   ========================================================================== */
+.contact-section, .booking-section {
+  text-align: center;
+}
+
+.contact-section h2, .booking-section h2 {
+  font-size: 2.4rem;
+  color: var(--text-pure);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.contact-section > p, .booking-section > p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.05rem;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  text-align: left;
+}
+
+/* Base Form Styling Setup */
+form {
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-pure);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.8rem;
+  background-color: var(--bg-main);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: var(--text-pure);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* Target explicit select options dropdown list styling color natively */
+select option {
+  background-color: var(--bg-card);
+  color: var(--text-pure);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent-gold);
+  color: var(--bg-main);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Sidebar Info Block Styling */
+.contact-info {
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  height: max-content;
+}
+
+.contact-info h3 {
+  color: var(--text-pure);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+.contact-info p {
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.contact-info a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-info a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   5. GALLERY CARDS SHOWCASE GRID
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.4s ease;
+}
+
+.card h3 {
+  margin: 1.5rem 1.5rem 0.5rem 1.5rem;
+  color: var(--text-pure);
+  font-size: 1.3rem;
+}
+
+.card p {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: var(--text-muted);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+/* ==========================================================================
+   6. DYNAMIC SYSTEM NOTIFICATIONS (Psychology: Immediate Satisfaction)
+   ========================================================================== */
+.flash-message {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+  padding: 1.2rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideDownIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==========================================================================
+   7. FOOTER STYLING & ANIMATIONS KEYS
+   ========================================================================== */
+footer {
+  background: #090a0d;
+  color: #565a69;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  margin-top: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDownIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   8. DYNAMIC LAYOUT RESPONSIVE SYSTEM MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  form, .contact-info {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  nav { flex-direction: column; align-items: center; }
+  nav a { padding: 0.6rem 1rem; width: 100%; text-align: center; }
+}
