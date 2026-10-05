@@ -3,15 +3,21 @@ import psycopg2
 import os
 
 app = Flask(__name__)
-app.secret_key = "super_secret_portfolio_key"
+# ✅ Use environment variable for secret key, fallback to hardcoded string
+app.secret_key = os.environ.get("SECRET_KEY", "super_secret_portfolio_key")
 
-# ✅ Use environment variable for safety, fallback to hardcoded string
+# ✅ Database connection helper
 def get_db_connection():
+    # Look for DATABASE_URL environment variable (set in Vercel)
     db_url = os.environ.get("DATABASE_URL")
+
+    # Fallback if not set (local testing only)
     if not db_url:
         db_url = "postgresql://postgres:coldhearted7218@db.ygtkibauxgbrknsuzjzb.supabase.co:5432/postgres"
+
     return psycopg2.connect(db_url)
 
+# Routes
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -36,7 +42,10 @@ def booking_page():
 def save_contact(name, email, message):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO contacts (name, email, message) VALUES (%s, %s, %s)", (name, email, message))
+    cursor.execute(
+        "INSERT INTO contacts (name, email, message) VALUES (%s, %s, %s)",
+        (name, email, message)
+    )
     conn.commit()
     cursor.close()
     conn.close()
@@ -114,4 +123,5 @@ def view_admin_data():
     return render_template_string(html_template, contacts=contacts_data, bookings=bookings_data)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # ✅ Use host/port for Vercel compatibility
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
